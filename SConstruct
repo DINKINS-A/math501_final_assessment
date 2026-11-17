@@ -5,8 +5,8 @@ import sys
 from methods import print_error
 
 
-libname = "EXTENSION-NAME"
-projectdir = "project"
+libname = "onitama_ai_controller"
+projectdir = "game"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
 
