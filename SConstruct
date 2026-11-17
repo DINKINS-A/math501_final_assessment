@@ -8,7 +8,7 @@ from methods import print_error
 libname = "onitama_ai_controller"
 projectdir = "game"
 
-localEnv = Environment(tools=["default"], PLATFORM="")
+localEnv = Environment(tools=["mingw"], CC="gcc", CXX="g++", CXXFLAGS="-std=c++20")
 
 # Build profiles can be used to decrease compile times.
 # You can either specify "disabled_classes", OR
@@ -39,6 +39,13 @@ env = SConscript("godot-cpp/SConstruct", {"api_version": 4.7, "env": env, "custo
 
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
+sources += Glob("src/AI_Framework/Actions/*.cpp")
+sources += Glob("src/AI_Framework/AIBase/*.cpp")
+sources += Glob("src/AI_Framework/BrainComponents/*.cpp")
+sources += Glob("src/AI_Framework/Considerations/*.cpp")
+sources += Glob("src/AI_Framework/Global/*.cpp")
+sources += Glob("src/AI_Framework/Options/*.cpp")
+sources += Glob("src/AI_Framework/*.cpp")
 
 if env["target"] in ["editor", "template_debug"]:
     try:
@@ -62,3 +69,6 @@ copy = env.Install("{}/bin/{}/".format(projectdir, env["platform"]), library)
 
 default_args = [library, copy]
 Default(*default_args)
+
+print("Using compiler:", env['CXX'])
+print(env["CXXFLAGS"])
