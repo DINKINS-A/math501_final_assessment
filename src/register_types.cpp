@@ -1,4 +1,5 @@
 #include "register_types.h"
+#include "Onitama/summator.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/class_db.hpp>
@@ -12,6 +13,8 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+
+	GDREGISTER_CLASS(Summator);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

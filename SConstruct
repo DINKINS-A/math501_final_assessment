@@ -46,6 +46,7 @@ sources += Glob("src/AI_Framework/Considerations/*.cpp")
 sources += Glob("src/AI_Framework/Global/*.cpp")
 sources += Glob("src/AI_Framework/Options/*.cpp")
 sources += Glob("src/AI_Framework/*.cpp")
+sources += Glob("src/Onitama/*.cpp")
 
 if env["target"] in ["editor", "template_debug"]:
     try:
